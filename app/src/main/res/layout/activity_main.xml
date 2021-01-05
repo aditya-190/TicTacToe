@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/red_color"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tic_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/tic_tac_toe"
+        android:gravity="center"
+        android:text="@string/tic"
+        android:textColor="@color/yellow_color"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tac_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/tic_tac_toe"
+        android:gravity="center"
+        android:text="@string/tac"
+        android:textColor="@color/yellow_color"
+        android:textSize="100sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tic_text" />
+
+    <TextView
+        android:id="@+id/toe_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/tic_tac_toe"
+        android:gravity="center"
+        android:text="@string/toe"
+        android:textColor="@color/yellow_color"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tac_text" />
+
+    <Button
+        android:id="@+id/singleplayer_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/background_large_radius"
+        android:fontFamily="@font/tic_tac_toe"
+        android:padding="10dp"
+        android:text="@string/single_player"
+        android:textAllCaps="false"
+        android:textColor="@color/yellow_color"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/purple_dark_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toe_text" />
+
+    <Button
+        android:id="@+id/local_mutiplayer_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/background_large_radius"
+        android:fontFamily="@font/tic_tac_toe"
+        android:padding="10dp"
+        android:text="@string/multiplayer"
+        android:textAllCaps="false"
+        android:textColor="@color/yellow_color"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/purple_dark_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/singleplayer_btn" />
+</androidx.constraintlayout.widget.ConstraintLayout>

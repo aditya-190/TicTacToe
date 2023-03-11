@@ -8,7 +8,7 @@
     android:keepScreenOn="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/difficulty"
+        android:id="@+id/clDifficultySelectionScreen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
@@ -17,11 +17,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/difficulty_heading"
-            android:layout_width="match_parent"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline10"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".15" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".85" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".40" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/tic_tac_toe"
             android:gravity="center"
             android:lineSpacingExtra="16dp"
@@ -31,75 +57,65 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@id/guideline12" />
 
         <Button
-            android:id="@+id/easy_bot"
-            android:layout_width="wrap_content"
+            android:id="@+id/btnEasyComputer"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
             android:background="@drawable/background_large_radius"
             android:fontFamily="@font/tic_tac_toe"
-            android:paddingStart="60dp"
-            android:paddingTop="10dp"
-            android:paddingEnd="60dp"
-            android:paddingBottom="10dp"
+            android:paddingVertical="8dp"
             android:text="@string/easy_bot"
             android:textAllCaps="false"
             android:textColor="@color/yellow_color"
             android:textSize="24sp"
             android:textStyle="bold"
             app:backgroundTint="@color/purple_dark_color"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/difficulty_heading" />
+            app:layout_constraintEnd_toEndOf="@id/guideline11"
+            app:layout_constraintStart_toStartOf="@id/guideline10"
+            app:layout_constraintTop_toBottomOf="@+id/guideline13" />
 
         <Button
-            android:id="@+id/medium_bot"
-            android:layout_width="wrap_content"
+            android:id="@+id/btnMediumComputer"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/background_large_radius"
             android:fontFamily="@font/tic_tac_toe"
-            android:paddingStart="60dp"
-            android:paddingTop="10dp"
-            android:paddingEnd="60dp"
-            android:paddingBottom="10dp"
+            android:paddingVertical="8dp"
             android:text="@string/medium_bot"
             android:textAllCaps="false"
             android:textColor="@color/yellow_color"
             android:textSize="24sp"
             android:textStyle="bold"
             app:backgroundTint="@color/purple_dark_color"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/easy_bot" />
+            app:layout_constraintEnd_toEndOf="@id/guideline11"
+            app:layout_constraintStart_toStartOf="@id/guideline10"
+            app:layout_constraintTop_toBottomOf="@+id/btnEasyComputer" />
 
         <Button
-            android:id="@+id/hard_bot"
-            android:layout_width="wrap_content"
+            android:id="@+id/btnHardComputer"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/background_large_radius"
             android:fontFamily="@font/tic_tac_toe"
-            android:paddingStart="60dp"
-            android:paddingTop="10dp"
-            android:paddingEnd="60dp"
-            android:paddingBottom="10dp"
+            android:paddingVertical="8dp"
             android:text="@string/hard_bot"
             android:textAllCaps="false"
             android:textColor="@color/yellow_color"
             android:textSize="24sp"
             android:textStyle="bold"
             app:backgroundTint="@color/purple_dark_color"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/medium_bot" />
+            app:layout_constraintEnd_toEndOf="@id/guideline11"
+            app:layout_constraintStart_toStartOf="@id/guideline10"
+            app:layout_constraintTop_toBottomOf="@+id/btnMediumComputer" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/game_play"
+        android:id="@+id/clPlayingScreen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/red_color"
@@ -109,136 +125,155 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/player_X_card"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="13dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.90" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mcvPlayerX"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             android:backgroundTint="@color/red_dark_color"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/guideline20"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintTop_toTopOf="@id/guideline1"
             app:strokeColor="@color/yellow_color"
             app:strokeWidth="4dp">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:padding="24dp">
 
                 <ImageView
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/player_x" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:text="@string/player_1"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:src="@drawable/player_x"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
                     android:background="@drawable/x_symbol"
                     android:backgroundTint="@color/yellow_color"
-                    android:contentDescription="@string/app_name" />
-            </LinearLayout>
+                    android:contentDescription="@string/app_name"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
 
         <TextView
-            android:id="@+id/player_X_turn"
+            android:id="@+id/tvPlayerXTurn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/turn_pointer"
             android:textColor="@color/white"
-            android:textSize="36sp"
+            android:textSize="42sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/player_X_card"
-            app:layout_constraintStart_toStartOf="@+id/player_X_card"
-            app:layout_constraintTop_toBottomOf="@+id/player_X_card" />
+            app:layout_constraintEnd_toEndOf="@+id/mcvPlayerX"
+            app:layout_constraintStart_toStartOf="@+id/mcvPlayerX"
+            app:layout_constraintTop_toBottomOf="@+id/mcvPlayerX" />
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/player_O_card"
+            android:id="@+id/mcvPlayerY"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="30dp"
+            android:layout_height="0dp"
             android:backgroundTint="@color/red_dark_color"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/guideline20"
+            app:layout_constraintEnd_toEndOf="@id/guideline4"
+            app:layout_constraintTop_toTopOf="@id/guideline1"
             app:strokeColor="@color/yellow_color"
             app:strokeWidth="4dp">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:padding="24dp">
 
                 <ImageView
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/player_o" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:text="@string/player_2"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:src="@drawable/player_o"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
                     android:background="@drawable/o_symbol"
                     android:backgroundTint="@color/yellow_color"
-                    android:contentDescription="@string/app_name" />
+                    android:contentDescription="@string/app_name"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
 
         <TextView
-            android:id="@+id/player_O_turn"
+            android:id="@+id/tvPlayerYTurn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/turn_pointer"
             android:textColor="@color/white"
-            android:textSize="36sp"
+            android:textSize="42sp"
             android:textStyle="bold"
             android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="@+id/player_O_card"
-            app:layout_constraintStart_toStartOf="@+id/player_O_card"
-            app:layout_constraintTop_toBottomOf="@+id/player_O_card" />
+            app:layout_constraintEnd_toEndOf="@+id/mcvPlayerY"
+            app:layout_constraintStart_toStartOf="@+id/mcvPlayerY"
+            app:layout_constraintTop_toBottomOf="@+id/mcvPlayerY" />
 
         <LinearLayout
-            android:id="@+id/game_grid"
-            android:layout_width="match_parent"
+            android:id="@+id/llGameBoard"
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_margin="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="6dp"
             android:background="@drawable/background_small_radius"
             android:backgroundTint="@color/yellow_color"
             android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/player_O_turn">
+            app:layout_constraintBottom_toTopOf="@id/adsGameActivity"
+            app:layout_constraintEnd_toEndOf="@id/guideline4"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/tvPlayerYTurn">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -250,7 +285,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/box_0"
+                    android:id="@+id/ivBox0"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginEnd="4dp"
@@ -258,13 +293,13 @@
                     android:background="@drawable/background_small_radius"
                     android:backgroundTint="@color/yellow_dark_color"
                     android:contentDescription="@string/app_name"
-                    android:onClick="boxTapped"
+                    android:onClick="showChangesOnBoxSelected"
                     android:padding="12dp"
                     android:tag="0"
                     tools:ignore="NestedWeights" />
 
                 <ImageView
-                    android:id="@+id/box_1"
+                    android:id="@+id/ivBox1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginEnd="4dp"
@@ -272,19 +307,19 @@
                     android:background="@drawable/background_small_radius"
                     android:backgroundTint="@color/yellow_dark_color"
                     android:contentDescription="@string/app_name"
-                    android:onClick="boxTapped"
+                    android:onClick="showChangesOnBoxSelected"
                     android:padding="12dp"
                     android:tag="1" />
 
                 <ImageView
-                    android:id="@+id/box_2"
+                    android:id="@+id/ivBox2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/background_small_radius"
                     android:backgroundTint="@color/yellow_dark_color"
                     android:contentDescription="@string/app_name"
-                    android:onClick="boxTapped"
+                    android:onClick="showChangesOnBoxSelected"
                     android:padding="12dp"
                     android:tag="2" />
             </LinearLayout>
@@ -299,7 +334,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/box_3"
+                    android:id="@+id/ivBox3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginEnd="4dp"
@@ -307,13 +342,13 @@
                     android:background="@drawable/background_small_radius"
                     android:backgroundTint="@color/yellow_dark_color"
                     android:contentDescription="@string/app_name"
-                    android:onClick="boxTapped"
+                    android:onClick="showChangesOnBoxSelected"
                     android:padding="12dp"
                     android:tag="3"
                     tools:ignore="NestedWeights" />
 
                 <ImageView
-                    android:id="@+id/box_4"
+                    android:id="@+id/ivBox4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginEnd="4dp"
@@ -321,19 +356,19 @@
                     android:background="@drawable/background_small_radius"
                     android:backgroundTint="@color/yellow_dark_color"
                     android:contentDescription="@string/app_name"
-                    android:onClick="boxTapped"
+                    android:onClick="showChangesOnBoxSelected"
                     android:padding="12dp"
                     android:tag="4" />
 
                 <ImageView
-                    android:id="@+id/box_5"
+                    android:id="@+id/ivBox5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/background_small_radius"
                     android:backgroundTint="@color/yellow_dark_color"
                     android:contentDescription="@string/app_name"
-                    android:onClick="boxTapped"
+                    android:onClick="showChangesOnBoxSelected"
                     android:padding="12dp"
                     android:tag="5" />
             </LinearLayout>
@@ -349,7 +384,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/box_6"
+                    android:id="@+id/ivBox6"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginEnd="4dp"
@@ -357,13 +392,13 @@
                     android:background="@drawable/background_small_radius"
                     android:backgroundTint="@color/yellow_dark_color"
                     android:contentDescription="@string/app_name"
-                    android:onClick="boxTapped"
+                    android:onClick="showChangesOnBoxSelected"
                     android:padding="12dp"
                     android:tag="6"
                     tools:ignore="NestedWeights" />
 
                 <ImageView
-                    android:id="@+id/box_7"
+                    android:id="@+id/ivBox7"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginEnd="4dp"
@@ -371,78 +406,118 @@
                     android:background="@drawable/background_small_radius"
                     android:backgroundTint="@color/yellow_dark_color"
                     android:contentDescription="@string/app_name"
-                    android:onClick="boxTapped"
+                    android:onClick="showChangesOnBoxSelected"
                     android:padding="12dp"
                     android:tag="7" />
 
                 <ImageView
-                    android:id="@+id/box_8"
+                    android:id="@+id/ivBox8"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/background_small_radius"
                     android:backgroundTint="@color/yellow_dark_color"
                     android:contentDescription="@string/app_name"
-                    android:onClick="boxTapped"
+                    android:onClick="showChangesOnBoxSelected"
                     android:padding="12dp"
                     android:tag="8" />
             </LinearLayout>
         </LinearLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/result"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:id="@+id/clResultScreen"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="6dp"
             android:background="@drawable/background_small_radius"
             android:backgroundTint="@color/yellow_color"
             android:orientation="vertical"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/player_O_card">
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@id/adsGameActivity"
+            app:layout_constraintEnd_toEndOf="@id/guideline4"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/tvPlayerYTurn">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".28" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".72" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".40" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".60" />
 
             <ImageView
-                android:id="@+id/result_image"
-                android:layout_width="180dp"
-                android:layout_height="180dp"
+                android:id="@+id/ivResultImage"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="12dp"
                 android:contentDescription="@string/app_name"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/tvResultText"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="@id/guideline6"
+                app:layout_constraintStart_toStartOf="@id/guideline5"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/result_text"
-                android:layout_width="match_parent"
+                android:id="@+id/tvResultText"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginBottom="12dp"
                 android:gravity="center"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="42sp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/imResultResetButton"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/result_image" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <ImageView
-                android:id="@+id/result_reset"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:id="@+id/imResultResetButton"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="12dp"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/reset"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/result_text" />
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="@id/guideline8"
+                app:layout_constraintStart_toStartOf="@id/guideline7" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adsGameActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:adSize="BANNER"
+            app:adUnitId="@string/game_banner_id"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline3" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

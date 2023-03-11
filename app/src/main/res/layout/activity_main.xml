@@ -5,58 +5,93 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/red_color"
-    tools:context=".MainActivity">
+    tools:context="com.bhardwaj.xo.MainActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".85" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".55" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".85" />
 
     <TextView
-        android:id="@+id/tic_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:id="@+id/tvTic"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:fontFamily="@font/tic_tac_toe"
         android:gravity="center"
         android:text="@string/tic"
         android:textColor="@color/yellow_color"
-        android:textSize="50sp"
+        android:textSize="48sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/tvTac"
+        app:layout_constraintEnd_toEndOf="@id/guideline2"
+        app:layout_constraintStart_toStartOf="@id/guideline1"
+        app:layout_constraintTop_toTopOf="@id/guideline3" />
 
     <TextView
-        android:id="@+id/tac_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/tvTac"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:fontFamily="@font/tic_tac_toe"
         android:gravity="center"
         android:text="@string/tac"
         android:textColor="@color/yellow_color"
-        android:textSize="100sp"
+        android:textSize="96sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tic_text" />
+        app:layout_constraintBottom_toTopOf="@id/tvToe"
+        app:layout_constraintEnd_toEndOf="@id/guideline2"
+        app:layout_constraintStart_toStartOf="@id/guideline1"
+        app:layout_constraintTop_toBottomOf="@id/tvTic" />
 
     <TextView
-        android:id="@+id/toe_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/tvToe"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:fontFamily="@font/tic_tac_toe"
         android:gravity="center"
         android:text="@string/toe"
         android:textColor="@color/yellow_color"
-        android:textSize="50sp"
+        android:textSize="48sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tac_text" />
+        app:layout_constraintBottom_toTopOf="@id/guideline4"
+        app:layout_constraintEnd_toEndOf="@id/guideline2"
+        app:layout_constraintStart_toStartOf="@id/guideline1"
+        app:layout_constraintTop_toBottomOf="@id/tvTac" />
 
     <Button
-        android:id="@+id/singleplayer_btn"
-        android:layout_width="match_parent"
+        android:id="@+id/btnSinglePlayer"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/background_large_radius"
         android:fontFamily="@font/tic_tac_toe"
         android:padding="10dp"
@@ -66,17 +101,16 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:backgroundTint="@color/purple_dark_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toe_text" />
+        app:layout_constraintBottom_toTopOf="@id/btnMultiplayer"
+        app:layout_constraintEnd_toEndOf="@id/guideline2"
+        app:layout_constraintStart_toStartOf="@id/guideline1"
+        app:layout_constraintTop_toBottomOf="@+id/guideline4" />
 
     <Button
-        android:id="@+id/local_mutiplayer_btn"
-        android:layout_width="match_parent"
+        android:id="@+id/btnMultiplayer"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/background_large_radius"
         android:fontFamily="@font/tic_tac_toe"
         android:padding="10dp"
@@ -86,7 +120,18 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:backgroundTint="@color/purple_dark_color"
+        app:layout_constraintBottom_toBottomOf="@id/guideline5"
+        app:layout_constraintEnd_toEndOf="@id/guideline2"
+        app:layout_constraintStart_toStartOf="@id/guideline1"
+        app:layout_constraintTop_toBottomOf="@+id/btnSinglePlayer" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adActivityMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:adSize="BANNER"
+        app:adUnitId="@string/main_banner_id"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/singleplayer_btn" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

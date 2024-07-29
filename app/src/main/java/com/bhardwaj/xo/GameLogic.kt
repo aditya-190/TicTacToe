@@ -14,8 +14,8 @@ import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 import java.util.*
 
 class GameLogic : AppCompatActivity(), OnUserEarnedRewardListener {
-    private var O: String? = null
-    private var X: String? = null
+    private var playerO: String? = null
+    private var playerX: String? = null
     private var llGameBoard: LinearLayout? = null
     private var clResultScreen: ConstraintLayout? = null
     private var clPlayingScreen: ConstraintLayout? = null
@@ -43,8 +43,8 @@ class GameLogic : AppCompatActivity(), OnUserEarnedRewardListener {
     }
 
     private fun initialise() {
-        O = getString(R.string.player_o)
-        X = getString(R.string.player_x)
+        playerO = getString(R.string.player_o)
+        playerX = getString(R.string.player_x)
         tvPlayerXTurn = findViewById(R.id.tvPlayerXTurn)
         tvPlayerYTurn = findViewById(R.id.tvPlayerYTurn)
         llGameBoard = findViewById(R.id.llGameBoard)
@@ -86,7 +86,7 @@ class GameLogic : AppCompatActivity(), OnUserEarnedRewardListener {
 
     private fun resetGame() {
         anyWinningConditionSatisfy = false
-        chanceOfPlayer = X
+        chanceOfPlayer = playerX
         mediumChancesCalculator = 3
         currentStateOfBoard = arrayOf("", "", "", "", "", "", "", "", "")
         currentGridImagesArray = arrayOf(
@@ -122,41 +122,41 @@ class GameLogic : AppCompatActivity(), OnUserEarnedRewardListener {
     fun showChangesOnBoxSelected(view: View) {
         val tappedBoxTag = view.tag.toString().toInt()
         if (gameModeUserSelected == "MultiPlayer") {
-            if (chanceOfPlayer == O && currentStateOfBoard[tappedBoxTag] == "") {
+            if (chanceOfPlayer == playerO && currentStateOfBoard[tappedBoxTag] == "") {
                 currentGridImagesArray[tappedBoxTag].setImageResource(R.drawable.o_symbol)
                 tvPlayerYTurn!!.visibility = View.INVISIBLE
                 tvPlayerXTurn!!.visibility = View.VISIBLE
-                currentStateOfBoard[tappedBoxTag] = O
-                chanceOfPlayer = X
+                currentStateOfBoard[tappedBoxTag] = playerO
+                chanceOfPlayer = playerX
             }
-            if (chanceOfPlayer == X && currentStateOfBoard[tappedBoxTag] == "") {
+            if (chanceOfPlayer == playerX && currentStateOfBoard[tappedBoxTag] == "") {
                 currentGridImagesArray[tappedBoxTag].setImageResource(R.drawable.x_symbol)
                 tvPlayerXTurn!!.visibility = View.INVISIBLE
                 tvPlayerYTurn!!.visibility = View.VISIBLE
-                currentStateOfBoard[tappedBoxTag] = X
-                chanceOfPlayer = O
+                currentStateOfBoard[tappedBoxTag] = playerX
+                chanceOfPlayer = playerO
             }
         } else if (gameModeUserSelected == "SinglePlayer") {
             if (currentStateOfBoard[tappedBoxTag] == "") {
                 if (isMovesLeftInGame) {
                     currentGridImagesArray[tappedBoxTag].setImageResource(R.drawable.x_symbol)
-                    currentStateOfBoard[tappedBoxTag] = X
+                    currentStateOfBoard[tappedBoxTag] = playerX
                 }
                 if (isMovesLeftInGame) {
                     val computerMoveBasedOnDifficulty: Int = if (difficultyLevelUserSelected == "easy") computerEasyMoves else if (difficultyLevelUserSelected == "medium") computerMediumMoves else computerHardMoves
                     currentGridImagesArray[computerMoveBasedOnDifficulty].setImageResource(R.drawable.o_symbol)
-                    currentStateOfBoard[computerMoveBasedOnDifficulty] = O
+                    currentStateOfBoard[computerMoveBasedOnDifficulty] = playerO
                 }
             }
         }
         val winner = checkForWinningConditions()
-        if (winner == X) {
+        if (winner == playerX) {
             anyWinningConditionSatisfy = true
-            showTheWinnerAs(X)
+            showTheWinnerAs(playerX)
         }
-        if (winner == O) {
+        if (winner == playerO) {
             anyWinningConditionSatisfy = true
-            showTheWinnerAs(O)
+            showTheWinnerAs(playerO)
         }
         if (winner == "" && !isMovesLeftInGame && !anyWinningConditionSatisfy) {
             showTheWinnerAs("")
@@ -170,7 +170,7 @@ class GameLogic : AppCompatActivity(), OnUserEarnedRewardListener {
         }
 
     private fun checkForWinningConditions(): String? {
-        for (innerPositions in winningConditionsList) if (currentStateOfBoard[innerPositions[0]] == currentStateOfBoard[innerPositions[1]] && currentStateOfBoard[innerPositions[1]] == currentStateOfBoard[innerPositions[2]] && currentStateOfBoard[innerPositions[0]] != "") return if (currentStateOfBoard[innerPositions[0]] == X) X else O
+        for (innerPositions in winningConditionsList) if (currentStateOfBoard[innerPositions[0]] == currentStateOfBoard[innerPositions[1]] && currentStateOfBoard[innerPositions[1]] == currentStateOfBoard[innerPositions[2]] && currentStateOfBoard[innerPositions[0]] != "") return if (currentStateOfBoard[innerPositions[0]] == playerX) playerX else playerO
         return ""
     }
 
@@ -187,7 +187,7 @@ class GameLogic : AppCompatActivity(), OnUserEarnedRewardListener {
         if (player == "") {
             ivResultImage!!.setImageResource(R.drawable.draw)
             tvResultText!!.text = draw
-        } else if (player == X) {
+        } else if (player == playerX) {
             tvResultText!!.text = win
             ivResultImage!!.setImageResource(R.drawable.win)
         } else {
@@ -218,7 +218,7 @@ class GameLogic : AppCompatActivity(), OnUserEarnedRewardListener {
             var bestScore = Int.MIN_VALUE
             var bestHardMove = 0
             for (i in 0..8) if (currentStateOfBoard[i] == "") {
-                currentStateOfBoard[i] = O
+                currentStateOfBoard[i] = playerO
                 val currentScore = alphaBetaPruning(0, false, Int.MIN_VALUE, Int.MAX_VALUE)
                 currentStateOfBoard[i] = ""
                 if (currentScore > bestScore) {
@@ -232,12 +232,12 @@ class GameLogic : AppCompatActivity(), OnUserEarnedRewardListener {
     private fun alphaBetaPruning(depth: Int, isMaximizing: Boolean, alpha: Int, beta: Int): Int {
         var alphaInside = alpha
         var betaInside = beta
-        if (checkForWinningConditions() == X) return -1 else if (checkForWinningConditions() == O) return +1 else if (!isMovesLeftInGame) return 0
+        if (checkForWinningConditions() == playerX) return -1 else if (checkForWinningConditions() == playerO) return +1 else if (!isMovesLeftInGame) return 0
         var bestScore = if (isMaximizing) Int.MIN_VALUE else Int.MAX_VALUE
         if (isMaximizing) {
             for (i in 0..8) {
                 if (currentStateOfBoard[i] == "") {
-                    currentStateOfBoard[i] = O
+                    currentStateOfBoard[i] = playerO
                     val score = alphaBetaPruning(depth + 1, false, alphaInside, betaInside)
                     currentStateOfBoard[i] = ""
                     bestScore = score.coerceAtLeast(bestScore)
@@ -248,7 +248,7 @@ class GameLogic : AppCompatActivity(), OnUserEarnedRewardListener {
         } else {
             for (i in 0..8) {
                 if (currentStateOfBoard[i] == "") {
-                    currentStateOfBoard[i] = X
+                    currentStateOfBoard[i] = playerX
                     val score = alphaBetaPruning(depth + 1, true, alphaInside, betaInside)
                     currentStateOfBoard[i] = ""
                     bestScore = score.coerceAtMost(bestScore)

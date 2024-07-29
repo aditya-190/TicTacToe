@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -14,21 +14,23 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/app_id" />
 
+        <property
+            android:name="android.adservices.AD_SERVICES_CONFIG"
+            android:resource="@xml/gma_ad_services_config"
+            tools:replace="android:resource" />
+
         <activity
             android:name=".GameLogic"
             android:exported="false"
-            android:configChanges="orientation|keyboard"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|keyboard" />
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:configChanges="orientation|keyboard"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|keyboard" />
         <activity
             android:name=".SplashScreen"
             android:exported="true"
-            android:configChanges="orientation|keyboard"
-            android:screenOrientation="portrait">
+            android:configChanges="orientation|keyboard">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

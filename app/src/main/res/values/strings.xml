@@ -20,15 +20,15 @@
     <string name="player_2_wins">Player 2 Wins</string>
 
     <!-- Actual -->
-<!--    <string name="app_id">ca-app-pub-5040281513434473~4595459166</string>-->
-<!--    <string name="main_banner_id">ca-app-pub-5040281513434473/4986642726</string>-->
-<!--    <string name="rewarded_id">ca-app-pub-5040281513434473/7087204212</string>-->
-<!--    <string name="game_banner_id">ca-app-pub-5040281513434473/1470069544</string>-->
+    <string name="app_id">ca-app-pub-5040281513434473~4595459166</string>
+    <string name="main_banner_id">ca-app-pub-5040281513434473/4986642726</string>
+    <string name="rewarded_id">ca-app-pub-5040281513434473/7087204212</string>
+    <string name="game_banner_id">ca-app-pub-5040281513434473/1470069544</string>
 
     <!-- For Testing Purpose -->
-    <string name="app_id">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="main_banner_id">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="rewarded_id">ca-app-pub-3940256099942544/5224354917</string>
-    <string name="game_banner_id">ca-app-pub-3940256099942544/6300978111</string>
+<!--    <string name="app_id">ca-app-pub-3940256099942544~3347511713</string>-->
+<!--    <string name="main_banner_id">ca-app-pub-3940256099942544/6300978111</string>-->
+<!--    <string name="rewarded_id">ca-app-pub-3940256099942544/5224354917</string>-->
+<!--    <string name="game_banner_id">ca-app-pub-3940256099942544/6300978111</string>-->
 
 </resources>

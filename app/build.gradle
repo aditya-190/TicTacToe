@@ -9,10 +9,10 @@ android {
     defaultConfig {
         applicationId "com.bhardwaj.xo"
         minSdkVersion 23
-        targetSdkVersion 34
-        compileSdk 34
-        versionCode 15
-        versionName "1.0.15"
+        targetSdkVersion 36
+        compileSdk 36
+        versionCode 16
+        versionName "1.0.16"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -38,19 +38,19 @@ android {
 
 dependencies {
 
-    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
     implementation 'com.google.android.material:material:1.12.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
+    implementation 'androidx.core:core-ktx:1.16.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
 
-    implementation 'com.google.android.gms:play-services-ads:23.2.0'
-    implementation 'com.google.firebase:firebase-ads:23.2.0'
-    implementation 'com.google.firebase:firebase-inappmessaging-display:21.0.0'
-    implementation 'com.google.firebase:firebase-messaging:24.0.0'
-    implementation 'com.google.firebase:firebase-analytics:22.0.2'
+    implementation 'com.google.android.gms:play-services-ads:24.4.0'
+    implementation 'com.google.firebase:firebase-ads:23.6.0'
+    implementation 'com.google.firebase:firebase-inappmessaging-display:21.0.2'
+    implementation 'com.google.firebase:firebase-messaging:24.1.2'
+    implementation 'com.google.firebase:firebase-analytics:22.5.0'
 
     // Added For GIF Loader on Splash Screen.
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.29'
